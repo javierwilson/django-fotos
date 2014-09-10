@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block content %}
+
+{% for item in expos %}
+<div>
+           <a href="{% url 'expo_detail' item.pk %}">
+            {% thumbnail item.imagen "100x100" crop="center" as im %}
+              <img src="{{ im.url }}" title="{{ item.expo }}" alt="{{ item.imagen }}" width="{{ im.width }}" height="{{ im.height }}" />
+            {% endthumbnail %}
+            </a>
+</div>
+{% endfor %}
+
+{% endblock %}

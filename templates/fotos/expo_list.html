@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block content %}
+<div class="section section-breadcrumbs">
+  <div class="container">
+    <div class="row">
+        <h1>Expos</h1>
+    </div>
+  </div>
+</div>
+<div class="section">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-11">
+     <div class="basic-login">
+   <!--<pre>-->
+    <table class="table table-striped">
+       <thead>
+        <tr>    
+          <th>Expo</th>
+          <th>Galería</th>
+          <th>Fecha</th>
+        </tr>
+       </thead>
+        {% for item in object_list %}
+        <tr>
+         <td>
+           <a href="{% url 'expo_detail' item.pk %}">
+            {% thumbnail item.imagen "100x100" crop="center" as im %}
+              <img src="{{ im.url }}" alt="{{ item.imagen }}" width="{{ im.width }}" height="{{ im.height }}" />
+            {% endthumbnail %}
+            {{ item.expo }}
+            </a>
+         </td>
+         <td>
+           {{ item.galeria }}
+         </td>
+         <td>
+            {{ item.fecha }}.
+         </td>
+       </tr>
+        {% endfor %}
+    </table>
+   <!--</pre>-->
+     </div>
+    </div>
+   </div>
+ </div>
+</div>
+{% endblock %}

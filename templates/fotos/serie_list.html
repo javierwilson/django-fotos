@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="section section-breadcrumbs">
+  <div class="container">
+    <div class="row">
+        <h1>Series</h1>
+    </div>
+  </div>
+</div>
+<div class="section">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-11">
+     <div class="basic-login">
+   <!--<pre>-->
+    <table class="table table-striped">
+       <thead>
+        <tr>    
+          <th>Serie</th>
+        </tr>
+       </thead>
+        {% for item in object_list %}
+        <tr>
+         <td>
+           <a href="{% url 'serie_detail' item.pk %}">{{ item.serie }}</a>
+         </td>
+       </tr>
+        {% endfor %}
+    </table>
+   <!--</pre>-->
+     </div>
+    </div>
+   </div>
+ </div>
+</div>
+{% endblock %}

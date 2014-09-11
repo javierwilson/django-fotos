@@ -1,26 +1,21 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
 {% block content %}
-<div class="section section-breadcrumbs">
-  <div class="container">
-    <div class="row">
-        <h1>Expo {{ object.expo }}</h1>
-    </div>
-  </div>
-</div>
-<div class="section">
- <div class="container">
   <div class="row">
-   <div class="col-md-11">
-     <div class="basic-login">
+    <div class="large-12 columns">
 
-<div>
-{% thumbnail object.imagen "500" as im %}
+        <h1>{{ object.expo }}</h1>
+
+<div class="row">
+<div class="large-12 columns">
+{% thumbnail object.imagen "500x500" as im %}
   <img src="{{ im.url }}" alt="{{ object.imagen }}" width="{{ im.width }}" height="{{ im.height }}" />
-{% endthumbnail %}
 {{ object.texto|linebreaks }}
 </div>
+</div>
 
+<div class="row">
+<div class="large-12 columns">
     <table class="table table-striped">
        <thead>
         <tr>    
@@ -35,7 +30,6 @@
            <a href="{% url 'foto_detail' item.pk %}">
             {% thumbnail item.imagen "100x100" crop="center" as im %}
               <img src="{{ im.url }}" alt="{{ item.imagen }}" width="{{ im.width }}" height="{{ im.height }}" />
-            {% endthumbnail %}
             {{ item.foto }}</a>
          </td>
          <td>
@@ -49,9 +43,9 @@
        </tr>
         {% endfor %}
     </table>
-     </div>
+ </div>
+ </div>
+
     </div>
    </div>
- </div>
-</div>
 {% endblock %}

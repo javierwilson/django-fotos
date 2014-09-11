@@ -29,9 +29,8 @@
          </td>
        </tr>
     </table>
-    {% thumbnail object.imagen "800" as im %}
+    {% thumbnail object.imagen "800x0" as im %}
       <img src="{{ im.url }}" alt="{{ object.imagen }}" width="{{ im.width }}" height="{{ im.height }}" />
-    {% endthumbnail %}
    <!--</pre>-->
      </div>
     </div>

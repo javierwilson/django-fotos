@@ -3,14 +3,49 @@
 
 {% block content %}
 
+  <div class="row">
+    <div class="large-12 columns">
+ 
+      <div class="hide-for-small">
+        <div id="featured">
+            {% thumbnail fotos.1.imagen 1000x400 crop="smart" as im %}
+              <a href="{% url 'foto_detail' fotos.1.pk %}"><img src="{{ im.url }}" alt="{{ fotos.1.imagen }}" width="{{ im.width }}" height="{{ im.height }}" /></a>
+          </div>
+        </div>
+ 
+    <div class="row">
+      <div class="small-12 show-for-small"><br>
+        {% thumbnail fotos.1.imagen 1000x600 crop="smart" as im %}
+          <a href="{% url 'foto_detail' fotos.1.pk %}"><img src="{{ im.url }}" alt="{{ fotos.1.imagen }}" width="{{ im.width }}" height="{{ im.height }}" /></a>
+      </div>
+    </div>
+ 
+    </div>
+  </div><br>
+
+
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row">
+ 
+     
+ 
 {% for item in expos %}
-<div>
+        <div class="large-3 small-6 columns">
            <a href="{% url 'expo_detail' item.pk %}">
-            {% thumbnail item.imagen "100x100" crop="center" as im %}
+            {% thumbnail item.imagen "250x250" crop="center" as im %}
               <img src="{{ im.url }}" title="{{ item.expo }}" alt="{{ item.imagen }}" width="{{ im.width }}" height="{{ im.height }}" />
-            {% endthumbnail %}
             </a>
-</div>
+          <h6 class="panel">{{ item }}</h6>
+        </div>
 {% endfor %}
+ 
+     
+ 
+      </div>
+    </div>
+  </div>
+
 
 {% endblock %}

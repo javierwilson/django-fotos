@@ -8,9 +8,17 @@
 
 <div class="row">
 <div class="large-12 columns">
-{% thumbnail object.imagen "500x500" as im %}
+<div class="row">
+
+<div class="large-4 columns">
+{% thumbnail object.imagen "500x400" as im %}
   <img src="{{ im.url }}" alt="{{ object.imagen }}" width="{{ im.width }}" height="{{ im.height }}" />
-{{ object.texto|linebreaks }}
+</div>
+<div class="large-8 columns">
+<i>{{ object.texto|linebreaks }}</i>
+</div>
+
+</div>
 </div>
 </div>
 

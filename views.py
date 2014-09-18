@@ -1,5 +1,6 @@
 import random
 
+from django.contrib.sites.models import Site
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 
@@ -11,10 +12,10 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
 
-	pool = list( Foto.objects.all() )
-	random.shuffle( pool )
-	context['fotos'] = pool[:5]
-
+        pool = list( Foto.objects.all() )
+        random.shuffle( pool )
+        context['fotos'] = pool[:5]
         context['expos'] = Expo.objects.all()
+
         return context
 

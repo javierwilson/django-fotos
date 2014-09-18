@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 <title>{{ flatpage.title }}</title>
 {% block content %}
-<p>{{ flatpage.content }}</p>
+  <div class="row">
+    <div class="large-12 columns">
+<p>{{ flatpage.content|linebreaks }}</p>
+    </div>
+  </div>
 {% endblock %}

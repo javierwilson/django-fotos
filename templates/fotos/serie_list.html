@@ -20,11 +20,13 @@
         </tr>
        </thead>
         {% for item in object_list %}
+        {% if item.publicado %}
         <tr>
          <td>
            <a href="{% url 'serie_detail' item.pk %}">{{ item.serie }}</a>
          </td>
-       </tr>
+        </tr>
+        {% endif %}
         {% endfor %}
     </table>
    <!--</pre>-->

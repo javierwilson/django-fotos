@@ -15,7 +15,7 @@ class IndexView(TemplateView):
         pool = list( Foto.objects.all() )
         random.shuffle( pool )
         context['fotos'] = pool[:5]
-        context['expos'] = Expo.objects.all()
+        context['expos'] = Expo.objects.all().filter(publicado=True)
 
         return context
 

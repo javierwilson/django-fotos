@@ -3,6 +3,7 @@ from sorl.thumbnail import ImageField
 #from taggit.managers import TaggableManager
 
 class Serie(models.Model):
+    publicado = models.BooleanField(default=True)
     serie = models.CharField(max_length=100)
     texto = models.TextField(null=True, blank=True)
     class Meta:
@@ -20,6 +21,7 @@ class Galeria(models.Model):
         return self.galeria
 
 class Expo(models.Model):
+    publicado = models.BooleanField(default=True)
     expo = models.CharField(max_length=100)
     galeria = models.ForeignKey(Galeria)
     fecha = models.DateField()
@@ -31,6 +33,7 @@ class Expo(models.Model):
         return self.expo
 
 class Foto(models.Model):
+    publicado = models.BooleanField(default=True)
     foto = models.CharField(max_length=200)
     serie = models.ForeignKey(Serie, null=True)
     expo = models.ManyToManyField(Expo, null=True, blank=True)
